@@ -36,10 +36,10 @@ public class Usuario implements Serializable{
     @Column(name= "senha")
     private String senha;
 
-
+    @Column(name= "repete")
     private String repete;
 
-
+    @Column(name= "admin")
     private Boolean admin;
 
     public Usuario() {

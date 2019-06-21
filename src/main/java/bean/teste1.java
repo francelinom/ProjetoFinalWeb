@@ -22,7 +22,7 @@ public class teste1 {
         UsuarioDAO dao = new UsuarioDAO();
         Date d1 = new GregorianCalendar(1986, Calendar.FEBRUARY, 03).getTime();
 
-        Usuario u = new Usuario("Francelino", "999999999", "vai da certo", d1, "999999999", "fran", "123", "123", Boolean.TRUE);
+        Usuario u = new Usuario("Francelino", "999999999", "vai da certo", d1, "999999999", "fran", "123", "123",true);
         dao.save(u);
         
         //Cliente c = new Cliente("Cliente1", "234324", "baixa da égua", 919192134, "indfsadf");

@@ -24,18 +24,17 @@ public class LoginBean {
     
     public String autentica() {
         FacesContext context = FacesContext.getCurrentInstance();
-
         UsuarioDAO dao = new UsuarioDAO();
         List<Usuario> usuarios = dao.listAll();
 
         for (Usuario i : usuarios) {
-            if (i.getNome().equals(usuarioAtual.getLogin())) {
+            if (i.getLogin().equals(usuarioAtual.getLogin())) {
                 if (i.getSenha().equals(usuarioAtual.getSenha())) {
                     ExternalContext ec = context.getExternalContext();
                     HttpSession s = (HttpSession) ec.getSession(true);
-                    s.setAttribute("Usuario-logado", usuarioAtual);          
-                   
+                    s.setAttribute("Usuario-logado", usuarioAtual);            
                     System.out.println("Usuario Encontrado" + usuarioAtual.getNome());
+                    System.out.println("foi");
                     return "/user/BemVindo.xhtml";
                 }
             }

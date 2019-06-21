@@ -8,39 +8,43 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario implements Serializable{
-    
+public class Usuario implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_cliente")
+    @Column(name = "id_cliente")
     private int id_cliente;
 
-    @Column(name= "nome")
+    @Column(name = "nome")
     private String nome;
 
-    @Column(name= "telefone")
+    @Column(name = "telefone")
     private String telefone;
 
-    @Column(name= "email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name= "nascimento")
+    @Column(name = "nascimento")
     private Date nascimento;
 
-    @Column(name= "cpf")
+    @Column(name = "cpf")
     private String cpf;
 
-    @Column(name= "login")
+    @Column(name = "login")
     private String login;
 
-    @Column(name= "senha")
+    @Column(name = "senha")
     private String senha;
 
-    @Column(name= "repete")
+    @Column(name = "repete")
     private String repete;
 
-    @Column(name= "admin")
+    @Column(name = "admin")
     private Boolean admin;
+
+    @OneToOne
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
 
     public Usuario() {
     }
@@ -64,8 +68,6 @@ public class Usuario implements Serializable{
     public void setId_cliente(int id_cliente) {
         this.id_cliente = id_cliente;
     }
-    
-    
 
     public String getNome() {
         return nome;
@@ -138,6 +140,13 @@ public class Usuario implements Serializable{
     public void setAdmin(Boolean admin) {
         this.admin = admin;
     }
-    
-    
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
 }

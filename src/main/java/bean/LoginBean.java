@@ -14,14 +14,13 @@ import model.Usuario;
 @ManagedBean(name = "login")
 @SessionScoped
 public class LoginBean {
-    
+
     private Usuario usuarioAtual;
 
     public LoginBean() {
         usuarioAtual = new Usuario();
     }
-     
-    
+
     public String autentica() {
         FacesContext context = FacesContext.getCurrentInstance();
         UsuarioDAO dao = new UsuarioDAO();
@@ -30,22 +29,27 @@ public class LoginBean {
         for (Usuario i : usuarios) {
             if (i.getLogin().equals(usuarioAtual.getLogin())) {
                 if (i.getSenha().equals(usuarioAtual.getSenha())) {
+                    if(i.getAdmin() == true){
                     ExternalContext ec = context.getExternalContext();
                     HttpSession s = (HttpSession) ec.getSession(true);
-                    s.setAttribute("Usuario-logado", usuarioAtual);            
-                    System.out.println("Usuario Encontrado" + usuarioAtual.getNome());
-                    System.out.println("foi");
-                    return "/user/BemVindo.xhtml";
+                    s.setAttribute("admin-logado", i);
+                    return "/admin/BemVindo?faces-redirect=true";
+                } else {
+                    ExternalContext ec = context.getExternalContext();
+                    HttpSession s = (HttpSession) ec.getSession(true);
+                    s.setAttribute("usuario-logado", i);
+                    return "/user/BemVindo?faces-redirect=true";
+                    }
                 }
             }
         }
-        
+
         System.out.println("Usuario não encontrado");
         FacesMessage mensagem = new FacesMessage("Usuario/senha invalidos!");
         mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
         context.addMessage(null, mensagem);
         return null;
-        
+
     }
 
     public Usuario getUsuarioAtual() {
@@ -55,6 +59,5 @@ public class LoginBean {
     public void setUsuarioAtual(Usuario usuarioAtual) {
         this.usuarioAtual = usuarioAtual;
     }
-        
-        
+
 }

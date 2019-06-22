@@ -23,12 +23,15 @@ public class teste1 {
         Endereco e = new Endereco("Rua de jundiai", 11, "EAJ", "Macaiba", "RN");
         u.setEndereco(e);
         
+        Usuario u2 = new Usuario("Marcilio", "999999999", "vai da certo", d1, "999999999", "user", "1122", "1122", false);
+        
         Venda v = new Venda(1,5, d1);
         
         
         sessao.save(v);
         sessao.save(e);
         sessao.save(u);
+        sessao.save(u2);
 
         transacao.commit();
         transacao.begin();

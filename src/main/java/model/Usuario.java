@@ -76,6 +76,7 @@ public class Usuario implements Serializable {
     }
 
     public Usuario() {
+        admin = false;
     }
 
     public Usuario(String nome, String telefone, String email, Date nascimento, String cpf, String login, String senha, String repete, Boolean admin) {

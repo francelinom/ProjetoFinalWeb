@@ -45,6 +45,35 @@ public class Usuario implements Serializable {
     @OneToOne
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
+    
+    
+    /************************************************************
+	 * 		UM PARA MUITOS - CASO 3
+	 ************************************************************/
+        
+	@OneToMany(mappedBy="usuario", fetch = FetchType.LAZY, orphanRemoval=true, cascade = CascadeType.ALL)
+        private List<Venda> vendas = new ArrayList<>();
+	
+	
+	public void addPedido(Venda novaVenda){
+		vendas.add(novaVenda);
+		novaVenda.setUsuario(this);
+	}
+	
+	public void removePedido(Venda removeVenda){
+		vendas.remove(removeVenda);
+		removeVenda.setUsuario(null);
+	}
+	
+	
+    public List<Venda> getVendas() {
+        return vendas;
+    }
+
+    /************************************************************/
+    public void setVendas(List<Venda> vendas) {
+        this.vendas = vendas;
+    }
 
     public Usuario() {
     }

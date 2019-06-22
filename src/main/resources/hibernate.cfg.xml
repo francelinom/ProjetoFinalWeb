@@ -27,6 +27,7 @@
         <mapping class="model.Endereco"/>
         <mapping class="model.Estoque"/>
         <mapping class="model.Produto"/>
+        <mapping class="model.Venda"/>
     
     
     

@@ -46,6 +46,23 @@ public class Produto implements Serializable {
         this.estoque = estoque;
     }
 
+    /**
+     * **********************************************************
+     * MUITOS PARA MUITOS CASO 2
+     * *********************************************************
+     */
+    @ManyToMany(mappedBy = "produtos")
+    private List<Venda> venda = new ArrayList<>();
+
+    public List<Venda> getVenda() {
+        return venda;
+    }
+
+    public void setVenda(List<Venda> venda) {
+        this.venda = venda;
+    }
+
+   
    
 
     public Produto(String nome_produto, double preco_produto) {
@@ -84,7 +101,8 @@ public class Produto implements Serializable {
         this.preco_produto = preco_produto;
     }
 
-    /*
+    /* NÃO ESTOU USANDO QTD_PRODUTO PORQUE COLOQUEI NA CLASSE ESTOQUE 
+    
     public int getQtd_produto() {
         return qtd_produto;
     }

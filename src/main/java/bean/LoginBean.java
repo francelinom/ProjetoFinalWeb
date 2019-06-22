@@ -40,7 +40,7 @@ public class LoginBean {
             }
         }
         
-        System.out.println("Vendedor não encontrado");
+        System.out.println("Usuario não encontrado");
         FacesMessage mensagem = new FacesMessage("Usuario/senha invalidos!");
         mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
         context.addMessage(null, mensagem);

@@ -21,10 +21,12 @@ public class teste1 {
 
         Usuario u = new Usuario("Francelino", "999999999", "vai da certo", d1, "999999999", "fran", "123", "123", true);
         Endereco e = new Endereco("Rua de jundiai", 11, "EAJ", "Macaiba", "RN");
-        //Estoque estoque = new Estoque(1, "", 0, d1, d1)
-        
         u.setEndereco(e);
         
+        Venda v = new Venda(1,5, d1);
+        
+        
+        sessao.save(v);
         sessao.save(e);
         sessao.save(u);
 

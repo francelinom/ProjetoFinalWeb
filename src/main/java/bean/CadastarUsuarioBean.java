@@ -36,6 +36,10 @@ public class CadastarUsuarioBean {
         endereco = new Endereco();
         
     }
+
+    public CadastarUsuarioBean(Endereco endereco) {
+        this.endereco = endereco;
+    }
     
     
     public void cadastrar(){

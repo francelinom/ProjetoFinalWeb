@@ -5,36 +5,46 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
-    
+
+
     <ui:composition template = "../templates/common.xhtml">	
         <ui:define name = "content">				
             <h1 style="text-align: center;">Página de Administração</h1> 
+
+            <h:form id="form-cad">
+                <!--<p:messages autoUpdate="true"/> -->
+                <p:fieldset legend="Cadastro de Produtos">
+                    Descrição do Produto: <p:inputText value=""/> <br/>	
+                    Quantidade: <p:inputText value=""/> <br/>	
+                    Hora da Entrada: <p:inputText value=""/> <br/>	
+                    <p:commandButton value="Salvar"  update="frm,form-cad"/>
+                    <p:commandButton value="Cancelar" immediate="true"/> <br/>	
+                </p:fieldset>
+
+            </h:form>
+
             <h:form id="frm">
-                
+
                 <!--<p:messages autoUpdate="true" />-->
-                
-                <p:fieldset legend="Gerenciamento dos usuários">
+                <br/>
+                <p:fieldset legend="Cadastrar Produto No Estoque">
                     <p:dataTable value="" var="usuario">
-                        <p:column headerText="CPF">
+                        <p:column headerText="Descrição do Produto">
                             <h:outputText value="" />
                         </p:column>
 
-                        <p:column headerText="Nome">
+                        <p:column headerText="Quantidade">
                             <h:outputText value="" />
                         </p:column>
 
-                        <p:column headerText="Nascimento">
+                        <p:column headerText="Hora de Entrada">
                             <h:outputText value="" >
                                 <f:convertDateTime pattern="dd/MM/YYYY" />
                             </h:outputText>
                         </p:column>
 
-                        <p:column headerText="Número de Livros">
-                            <h:outputText value="" />
-                        </p:column>
-
                         <p:column headerText="Ação">
+                            <p:commandButton  value="Editar" update="frm"/>
                             <p:commandButton  value="Excluir" update="frm"/>
                         </p:column>
 

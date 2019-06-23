@@ -14,31 +14,51 @@
                     <p:messages/>
                     <h:panelGrid columns="2">
                         <p:outputLabel value="Nome: "/>
-                        <p:inputText value="#{cadastradaUsuarioBean.novoUsuario.nome}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
+                        <p:inputText value="#{cadastrar.usuario.nome}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
 
                         <p:outputLabel value="Telefone: "/> 
-                        <p:inputText value="#{cadastradaUsuarioBean.novoUsuario.telefone}"></p:inputText>
+                        <p:inputMask mask="(99)9.9999-9999" value="#{cadastrar.usuario.telefone}"></p:inputMask>
+
+                        <p:outputLabel value="E-mail "/>
+                        <p:inputText value="#{cadastrar.usuario.email}"></p:inputText>
 
                         <p:outputLabel value="Nacimento: "/>
-                        <p:inputText value="#{cadastradaUsuarioBean.novoUsuario.nascimento}" converterMessage="A data precisa estar no formato dd/mm/aaaa.">
+                        <p:inputMask mask="99/99/9999" value="#{cadastrar.usuario.nascimento}" converterMessage="A data precisa estar no formato dd/mm/aaaa.">
                             <f:convertDateTime pattern="dd/MM/YYYY" />
+                        </p:inputMask>
+
+                        <p:outputLabel value="CPF"></p:outputLabel>
+                        <p:inputMask mask="999.999.999-99" value="#{cadastrar.usuario.cpf}" required="true" requiredMessage="Preencher Data de Lançamento"></p:inputMask>
+
+                        <p:outputLabel value="Rua/Travessa/Avenida:"></p:outputLabel>
+                        <p:inputText value="#{cadastrar.endereco.rua}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
+
+                        <p:outputLabel value="Numero"></p:outputLabel>
+                        <p:inputText value="#{cadastrar.endereco.numero}" required="true" requiredMessage="Preencher com um numero valido" validatorMessage="" >
+                            <f:validateLength minimum="1" />
                         </p:inputText>
 
-                        <p:outputLabel value="Matricula: "/>
-                        <p:inputText value="#{cadastradaUsuarioBean.novoUsuario.matricula}"></p:inputText>
+                        <p:outputLabel value="Bairro"></p:outputLabel>
+                        <p:inputText value="#{cadastrar.endereco.bairro}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
+
+                        <p:outputLabel value="Cidade"></p:outputLabel>
+                        <p:inputText value="#{cadastrar.endereco.cidade}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
+
+                        <p:outputLabel value="Estado"></p:outputLabel>
+                        <p:inputText value="#{cadastrar.endereco.estado}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
 
                         <p:outputLabel value="Login: "/>
-                        <p:inputText value="#{cadastradaUsuarioBean.novoUsuario.login}" required="true" requiredMessage="Login é necessário" validatorMessage="Login deve ter pelo menos 5 caracteres.">
+                        <p:inputText value="#{cadastrar.usuario.login}" required="true" requiredMessage="Login é necessário" validatorMessage="Login deve ter pelo menos 5 caracteres.">
                             <f:validateLength minimum="5" />
                         </p:inputText>
 
                         <p:outputLabel value="Senha: "/> 
-                        <p:password id= "fsenha" value="#{cadastradaUsuarioBean.novoUsuario.senha}" required="true" requiredMessage="Senha é necessário"  validatorMessage="Senha deve ter pelo menos 5 caracteres.">
+                        <p:password id= "fsenha" value="#{cadastrar.usuario.senha}" required="true" requiredMessage="Senha é necessário"  validatorMessage="Senha deve ter pelo menos 5 caracteres.">
                             <f:validateLength minimum="5" />
                         </p:password>
 
                         <p:outputLabel value="Repete Senha: "/> 
-                        <p:password id="rsenha" value="#{cadastradaUsuarioBean.novoUsuario.repete}" required="true" requiredMessage="É necessário confirmar a senha."  validatorMessage="As senhas devem ser iguais."> 
+                        <p:password id="rsenha" value="#{cadastrar.usuario.repete}" required="true" requiredMessage="É necessário confirmar a senha."  validatorMessage="As senhas devem ser iguais."> 
                             <!--  <f:validator for="rsenha" validatorId="validaSenha"/> -->
                         </p:password>
 
@@ -46,10 +66,10 @@
 
                     </h:panelGrid>		
 
-                    <p:commandButton value="Cadastrar" action="#{cadastradaUsuarioBean.cadastar()}" update="@form" />
+                    <p:commandButton value="Cadastrar" action="#{cadastrar.cadastrar()}" update="@form" />
                     <p:commandButton value="Cancelar"  immediate="true" action="index?faces-redirect=true"/>	
-                    
-                    </h:form>
+
+                </h:form>
 
             </div>
         </ui:define>         

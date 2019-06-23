@@ -24,6 +24,8 @@ public class teste1 {
         u.setEndereco(e);
         
         Usuario u2 = new Usuario("Marcilio", "999999999", "vai da certo", d1, "999999999", "user", "1122", "1122", false);
+        Endereco e2 = new Endereco("Rua do Suporte", 77, "EAJ", "Macaiba", "RN");
+        u2.setEndereco(e2);
         
         Venda v = new Venda(1,5, d1);
         
@@ -32,7 +34,7 @@ public class teste1 {
         sessao.save(e);
         sessao.save(u);
         sessao.save(u2);
-
+        sessao.save(e2);
         transacao.commit();
         transacao.begin();
         

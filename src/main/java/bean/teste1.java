@@ -22,19 +22,28 @@ public class teste1 {
         Usuario u = new Usuario("Francelino", "999999999", "vai da certo", d1, "999999999", "fran", "123", "123", true);
         Endereco e = new Endereco("Rua de jundiai", 11, "EAJ", "Macaiba", "RN");
         u.setEndereco(e);
+        sessao.save(u);
+        e.setUsuarios(u);
+        sessao.save(e);
         
-        Usuario u2 = new Usuario("Marcilio", "999999999", "vai da certo", d1, "999999999", "user", "1122", "1122", false);
-        Endereco e2 = new Endereco("Rua do Suporte", 77, "EAJ", "Macaiba", "RN");
-        u2.setEndereco(e2);
-        
-        Venda v = new Venda(1,5, d1);
+        //Estoque est = new Estoque("Batata doce",10, d1, d1);
+       // sessao.save(est);
         
         
+        //u.setEndereco(e);
+        
+        //Usuario u2 = new Usuario("Marcilio", "999999999", "vai da certo", d1, "999999999", "user", "1122", "1122", false);
+        //Endereco e2 = new Endereco("Rua do Suporte", 77, "EAJ", "Macaiba", "RN");
+       // u2.setEndereco(e2);
+        
+        //Venda v = new Venda(1,5, d1);
+        
+        /*
         sessao.save(v);
         sessao.save(e);
         sessao.save(u);
         sessao.save(u2);
-        sessao.save(e2);
+        sessao.save(e2);*/
         transacao.commit();
         transacao.begin();
         

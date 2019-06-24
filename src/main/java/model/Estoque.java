@@ -25,6 +25,10 @@ public class Estoque implements Serializable{
         @JoinColumn(name = "produto_id")})
     private List<Produto> produtos = new ArrayList<>();
 
+    public Estoque(String batata_doce, int i, Date d1, Date d10) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * **********************************************************
      * MUITOS PARA MUITOS CASO 2

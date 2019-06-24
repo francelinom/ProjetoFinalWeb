@@ -51,7 +51,7 @@ public class Usuario implements Serializable {
 	 * 		UM PARA MUITOS - CASO 3
 	 ************************************************************/
         
-	@OneToMany(mappedBy="usuario", fetch = FetchType.LAZY, orphanRemoval=true, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="usuario",/* fetch = FetchType.LAZY,*/ orphanRemoval=true, cascade = CascadeType.ALL)
         private List<Venda> vendas = new ArrayList<>();
 	
 	

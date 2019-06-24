@@ -6,11 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "enderecos")
+@Table(name = "endereco")
 public class Endereco implements Serializable {
 
     @Id
@@ -39,7 +40,8 @@ public class Endereco implements Serializable {
 	 **********************************************************
      */
     @OneToOne(mappedBy = "endereco"/*, orphanRemoval=true*/)
-    private Usuario usuarios;
+    @JoinColumn(name="usuarios_id")
+    private Usuario usuario;
 
     public Endereco() {
     }
@@ -101,11 +103,11 @@ public class Endereco implements Serializable {
     }
 
     public Usuario getUsuarios() {
-        return usuarios;
+        return usuario;
     }
 
-    public void setUsuarios(Usuario usuarios) {
-        this.usuarios = usuarios;
+    public void setUsuarios(Usuario usuario) {
+        this.usuario = usuario;
     }
 
 }

@@ -1,3 +1,4 @@
+
 package genericdao.impl;
 
 import genericdao.interfaces.IGenericUsuario;

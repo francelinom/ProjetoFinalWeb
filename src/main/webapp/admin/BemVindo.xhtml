@@ -11,42 +11,58 @@
         <ui:define name = "content">				
             <h1 style="text-align: center;">Página de Administração</h1> 
 
-            <h:form id="form-cad">
-                <!--<p:messages autoUpdate="true"/> -->
+            <h:form>
+
+                <h:messages style="color:red"/>
                 <p:fieldset legend="Cadastro de Produtos">
-                    Descrição do Produto: <p:inputText value=""/> <br/>	
-                    Quantidade: <p:inputText value=""/> <br/>	
-                    Hora da Entrada: <p:inputText value=""/> <br/>	
-                    <p:commandButton value="Salvar"  update="frm,form-cad"/>
-                    <p:commandButton value="Cancelar" immediate="true"/> <br/>	
-                </p:fieldset>
+                    <p:panelGrid columns="2">
+                        <h:outputLabel value="Descrição/Nome Produto"></h:outputLabel>
+                        <p:inputText value="#{cadastarProduto.estoque.descricao_produto}" required="true" requiredMessage="Produto Não pode Ficar em Branco"></p:inputText>
 
-            </h:form>
+                        <h:outputLabel value="Quantidade"></h:outputLabel>
+                        <p:inputText value="#{cadastarProduto.estoque.qtd_produto}">
+                            <f:validateDoubleRange minimum="1"></f:validateDoubleRange>
+                            <f:convertNumber type="number"></f:convertNumber>                    
+                        </p:inputText>
 
-            <h:form id="frm">
 
-                <!--<p:messages autoUpdate="true" />-->
-                <br/>
-                <p:fieldset legend="Cadastrar Produto No Estoque">
-                    <p:dataTable value="" var="usuario">
-                        <p:column headerText="Descrição do Produto">
-                            <h:outputText value="" />
+                        <h:outputLabel value="Hora de Entrada do Produto"></h:outputLabel>
+                        <p:inputMask mask="99/99/9999"  value="#{cadastarProduto.estoque.hora_entrada}" 
+                                     requiredMessage="Formato de data inválido">
+                            <f:convertDateTime pattern="dd/MM/yyyy"  />
+
+                        </p:inputMask>
+
+
+                        <h:outputLabel value="Hora de Saída do Produto"></h:outputLabel>
+                        <p:inputMask mask="99/99/9999"  value="#{cadastarProduto.estoque.hora_saida}" 
+                                     requiredMessage="Formato de data inválido">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+
+                        </p:inputMask>
+
+
+                    </p:panelGrid>
+
+                    <p:commandButton value="Cadastrar" action="#{cadastarProduto.cadastrar()}" update="@form"></p:commandButton>
+                    <p:commandButton value="Cancelar" action="cancelar" update="@form" immediate="true"></p:commandButton>
+
+                    <br/><br/>
+
+                    <p:dataTable value="#{cadastarProduto.estoqueList()}" var="estoque">
+                        <p:column headerText="Descrição/Nome Produto">
+                            <h:outputText value="#{estoque.descricao_produto}"></h:outputText>
                         </p:column>
-
                         <p:column headerText="Quantidade">
-                            <h:outputText value="" />
+                            <h:outputText value="#{estoque.qtd_produto}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Hora de Entrada do Produto">
+                            <h:outputText value="#{estoque.hora_entrada}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Hora de Saída do Produto">
+                            <h:outputText value="#{estoque.hora_saida}"></h:outputText>
                         </p:column>
 
-                        <p:column headerText="Hora de Entrada">
-                            <h:outputText value="" >
-                                <f:convertDateTime pattern="dd/MM/YYYY" />
-                            </h:outputText>
-                        </p:column>
-
-                        <p:column headerText="Ação">
-                            <p:commandButton  value="Editar" update="frm"/>
-                            <p:commandButton  value="Excluir" update="frm"/>
-                        </p:column>
 
 
                     </p:dataTable>

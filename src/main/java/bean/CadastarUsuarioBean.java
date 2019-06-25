@@ -60,21 +60,12 @@ public class CadastarUsuarioBean {
         usuario = new Usuario();
         
         return "/index.xhtml";
-        /*DANIEL DISSE QUE ASSIM FUNCIONOU!!!! VAMOS TESTAR 
-        VendedorDAO daoV = new VendedorDAO();
-        Vendedor v = new Vendedor();
-        v.setNome("Daniel Soares Rocha");
-        v.setCpf("3452345");
-        daoV.save(v);
         
-        Credencial c = new Credencial();
-        c.setLogin("Daniel");
-        c.setSenha("admin");
-        c.setVendedor(v);
-        
-        CredencialDAO daoC = new CredencialDAO();
-        daoC.save(c); */
     }
+    
+    
+    
+    
 
     public Endereco getEndereco() {
         return endereco;

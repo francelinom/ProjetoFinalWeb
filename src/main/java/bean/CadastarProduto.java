@@ -28,6 +28,28 @@ public class CadastarProduto {
         
     }
     
+     public String excluirEstoque(Estoque e){
+        
+        daoEstoque.delete(e);
+        
+        return "/admin/BemVindo.xhtml";
+    }
+    
+    public String editarEstoque(Estoque e){
+        estoque = e;
+        return "/admin/editarProduto.xhtml";
+    }
+    public String salvar(){
+        daoEstoque = new EstoqueDAO();
+        daoEstoque.save(estoque);
+        
+       
+        return "/admin/BemVindo.xhtml";
+    }
+
+    
+    
+    
     public List<Estoque> estoqueList(){
         listaEstoque = daoEstoque.listAll();
         return listaEstoque;

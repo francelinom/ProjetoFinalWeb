@@ -44,7 +44,7 @@ public class CadastarUsuarioBean {
         this.endereco = endereco;
     }
 
-    public void cadastrar() {
+    public String cadastrar() {
         UsuarioDAO daoUsuario = new UsuarioDAO(); //preparando dao usuario
         daoUsuario.save(usuario); //adiciona o usuario no banco               
 
@@ -59,7 +59,7 @@ public class CadastarUsuarioBean {
         endereco = new Endereco();
         usuario = new Usuario();
         
-        
+        return "/index.xhtml";
         /*DANIEL DISSE QUE ASSIM FUNCIONOU!!!! VAMOS TESTAR 
         VendedorDAO daoV = new VendedorDAO();
         Vendedor v = new Vendedor();

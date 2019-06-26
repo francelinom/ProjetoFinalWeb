@@ -11,23 +11,22 @@ public class Estoque implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_produto")
-    private Integer id_produto;
-    private String descricao_produto;
-    private int qtd_produto;
-    private Date hora_entrada;
-    private Date hora_saida;
+    @Column(name = "id_estoque")
+    private Integer id_estoque;
+    private String nome_estoque;
+    //private int qtd_produto;
+    //private Date hora_entrada;
+    //private Date hora_saida;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "estoque_produtos", joinColumns = {
+    @JoinTable(name = "estoque_produtos",
+        joinColumns = {
         @JoinColumn(name = "estoque_id",
-                referencedColumnName = "id_produto")}, inverseJoinColumns = {
+                referencedColumnName = "id_estoque")}, inverseJoinColumns = {
         @JoinColumn(name = "produto_id")})
     private List<Produto> produtos = new ArrayList<>();
 
-    public Estoque(String batata_doce, int i, Date d1, Date d10) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     /**
      * **********************************************************
@@ -48,52 +47,37 @@ public class Estoque implements Serializable{
     public Estoque() {
     }
 
-    public Estoque(Integer id_produto, String descricao_produto, int qtd_produto, Date hora_entrada, Date hora_saida) {
-        this.id_produto = id_produto;
-        this.descricao_produto = descricao_produto;
-        this.qtd_produto = qtd_produto;
-        this.hora_entrada = hora_entrada;
-        this.hora_saida = hora_saida;
+    public Estoque(Integer id_estoque, String nome_estoque) {
+        this.id_estoque = id_estoque;
+        this.nome_estoque = nome_estoque;
     }
 
-    public Integer getId_produto() {
-        return id_produto;
+    public Integer getId_estoque() {
+        return id_estoque;
     }
 
-    public void setId_produto(Integer id_produto) {
-        this.id_produto = id_produto;
+    public void setId_estoque(Integer id_estoque) {
+        this.id_estoque = id_estoque;
     }
 
-    public String getDescricao_produto() {
-        return descricao_produto;
+    public String getNome_estoque() {
+        return nome_estoque;
     }
 
-    public void setDescricao_produto(String descricao_produto) {
-        this.descricao_produto = descricao_produto;
+    public void setNome_estoque(String nome_estoque) {
+        this.nome_estoque = nome_estoque;
     }
 
-    public int getQtd_produto() {
-        return qtd_produto;
+    public List<Produto> getProdutos() {
+        return produtos;
     }
 
-    public void setQtd_produto(int qtd_produto) {
-        this.qtd_produto = qtd_produto;
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
-    public Date getHora_entrada() {
-        return hora_entrada;
-    }
+    
 
-    public void setHora_entrada(Date hora_entrada) {
-        this.hora_entrada = hora_entrada;
-    }
-
-    public Date getHora_saida() {
-        return hora_saida;
-    }
-
-    public void setHora_saida(Date hora_saida) {
-        this.hora_saida = hora_saida;
-    }
+    
 
 }

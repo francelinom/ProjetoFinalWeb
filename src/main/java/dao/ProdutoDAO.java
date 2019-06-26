@@ -53,7 +53,7 @@ public class ProdutoDAO {
         query.select(klassRoot);
 
         List<Produto> result = session.createQuery(query).getResultList();
-
+        session.close();
         return result;
 
     }

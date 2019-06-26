@@ -18,29 +18,20 @@
                 <p:fieldset legend="Cadastro de Produtos">
                     <p:panelGrid columns="2">
                         <h:outputLabel value="Descrição/Nome Produto"></h:outputLabel>
-                        <p:inputText value="#{cadastarProduto.estoque.descricao_produto}" required="true" requiredMessage="Produto Não pode Ficar em Branco"></p:inputText>
+                        <p:inputText value="#{cadastarProduto.produto.nome_produto}" required="true" requiredMessage="Produto Não pode Ficar em Branco"></p:inputText>
 
                         <h:outputLabel value="Quantidade"></h:outputLabel>
-                        <p:inputText value="#{cadastarProduto.estoque.qtd_produto}">
+                        <p:inputText value="#{cadastarProduto.produto.qtd_produto}">
                             <f:validateDoubleRange minimum="1"></f:validateDoubleRange>
                             <f:convertNumber type="number"></f:convertNumber>                    
                         </p:inputText>
 
+                        <h:outputLabel value="Preço do Produto"></h:outputLabel>
+                        <p:inputText value="#{cadastarProduto.produto.preco_produto}">
+                            <f:validateDoubleRange minimum="1"></f:validateDoubleRange>
+                            <f:convertNumber type="number"></f:convertNumber>                    
+                        </p:inputText>
 
-                        <h:outputLabel value="Data de Entrada do Produto"></h:outputLabel>
-                        <p:inputMask mask="99/99/9999"  value="#{cadastarProduto.estoque.hora_entrada}" 
-                                     requiredMessage="Formato de data inválido">
-                            <f:convertDateTime pattern="dd/MM/yyyy"  />
-
-                        </p:inputMask>
-
-
-                        <h:outputLabel value="Data de Saída do Produto"></h:outputLabel>
-                        <p:inputMask mask="99/99/9999"  value="#{cadastarProduto.estoque.hora_saida}" 
-                                     requiredMessage="Formato de data inválido">
-                            <f:convertDateTime pattern="dd/MM/yyyy" />
-
-                        </p:inputMask>
 
 
                     </p:panelGrid>
@@ -50,28 +41,25 @@
 
                     <br/><br/>
 
-                    <p:dataTable value="#{cadastarProduto.estoqueList()}" var="estoque">
+                    <p:dataTable value="#{cadastarProduto.produtoList()}" var="produto">
                         <p:column headerText="Descrição/Nome Produto">
-                            <h:outputText value="#{estoque.descricao_produto}"></h:outputText>
+                            <h:outputText value="#{produto.nome_produto}"></h:outputText>
                         </p:column>
                         <p:column headerText="Quantidade">
-                            <h:outputText value="#{estoque.qtd_produto}"></h:outputText>
+                            <h:outputText value="#{produto.qtd_produto}"></h:outputText>
                         </p:column>
-                        <p:column headerText="Data de Entrada do Produto">
-                            <h:outputText value="#{estoque.hora_entrada}"></h:outputText>
+                        <p:column headerText="Preço do Produto">
+                            <h:outputText value="#{produto.preco_produto}"></h:outputText>
                         </p:column>
-                        <p:column headerText="Data de Saída do Produto">
-                            <h:outputText value="#{estoque.hora_saida}"></h:outputText>
-                        </p:column>
-
-
-
+                        
                     </p:dataTable>
                 </p:fieldset>
             </h:form>
             <h:form>
                 <p:column>
                     <p:commandButton action="/admin/editarProduto.xhtml" value="Editar"/>
+                    <p:commandButton action="/admin/AddEstoque.xhtml" value="Estoque"/>
+                    <p:commandButton action="/admin/CadastrarEstoque.xhtml" value="Cadastrar Estoque"/>
                 </p:column>
             </h:form>
         </ui:define>         

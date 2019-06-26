@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <ui:composition template = "../templates/common.xhtml">	
+        <ui:define name = "content">	
+            #{cadastrarEstoqueBean.inicializarEstoque()}
+            <h1 style="text-align: center;">Página de Estoque</h1> 
+
+            <h:form>
+
+                <h:messages style="color:red"/>
+                <p:fieldset legend="Cadastro de Estoque">
+                    
+                    <p:panelGrid columns="2">
+                        <h:outputLabel value="Descrição/Nome Produto"></h:outputLabel>
+                        <p:outputLabel value="#{cadastarProduto.produto.nome_produto}" />
+
+                        <h:outputLabel value="Quantidade"></h:outputLabel>
+                        <p:outputLabel value="#{cadastarProduto.produto.qtd_produto}"/>
+                           
+
+                        <h:outputLabel value="Preço do Produto"></h:outputLabel>
+                        <p:outputLabel value="#{cadastarProduto.produto.preco_produto}"/>
+                    
+                    </p:panelGrid>
+                    
+                    <p:dataTable value="#{cadastarProduto.produtoList()}" var="produto">
+                        <p:column headerText="Estoque">
+                            <h:outputText value=""></h:outputText>
+                        </p:column>
+                        
+                        <p:column headerText="Ação">
+                            <h:outputText value=""></h:outputText>
+                        </p:column>
+                        
+                        
+                    </p:dataTable>
+
+                    <p:commandButton value="Cadastrar"  update="@form"></p:commandButton>
+                    <p:commandButton value="Home" action="/admin/BemVindo.xhtml" update="@form" immediate="true"></p:commandButton>
+
+                </p:fieldset>
+            </h:form>
+        </ui:define>         
+    </ui:composition>
+</html>
+

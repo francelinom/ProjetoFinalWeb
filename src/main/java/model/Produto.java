@@ -26,7 +26,8 @@ public class Produto implements Serializable {
 
     private double preco_produto;
 
-    //private int qtd_produto;
+    private int qtd_produto;
+    
     public Produto() {
     }
 
@@ -101,7 +102,6 @@ public class Produto implements Serializable {
         this.preco_produto = preco_produto;
     }
 
-    /* NÃO ESTOU USANDO QTD_PRODUTO PORQUE COLOQUEI NA CLASSE ESTOQUE 
     
     public int getQtd_produto() {
         return qtd_produto;
@@ -110,5 +110,5 @@ public class Produto implements Serializable {
     public void setQtd_produto(int qtd_produto) {
         this.qtd_produto = qtd_produto;
     }
-     */
+   
 }

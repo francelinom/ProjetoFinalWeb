@@ -1,4 +1,3 @@
-
 package dao;
 
 import java.util.List;
@@ -10,15 +9,15 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import persistencia.HibernateUtil;
 
-
 public class UsuarioDAO {
+
     private Session session = null;
 
     public UsuarioDAO() {
         this.session = HibernateUtil.getSessionFactory().openSession();
     }
-    
-     public Usuario findById(Integer id) {
+
+    public Usuario findById(Integer id) {
         Usuario object = (Usuario) session.get(Usuario.class, id);
         return object;
     }
@@ -45,9 +44,9 @@ public class UsuarioDAO {
         query.select(klassRoot);
 
         List<Usuario> result = session.createQuery(query).getResultList();
-
+        session.close();
         return result;
 
     }
-    
+
 }

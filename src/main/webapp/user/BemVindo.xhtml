@@ -10,25 +10,24 @@
         <ui:define name = "content">				
             <h1 style="text-align: center;">Página de Usuário</h1> 
             <h:form id="form-cad">
-                
+
                 <!--<p:messages autoUpdate="true"/>-->
-                
+
                 <p:fieldset style="text-align: center;" legend="Entre Na Loja Virtual e Faça Suas Compras">
-                    
+
                     <p:commandButton value="Loja Virtual" action="/user/LojaVirtual.xhtml"/>
-                    <p:commandButton value="Cancelar" immediate="true"/> <br/>	
                 </p:fieldset>
 
             </h:form>
 
             <h:form id="frm">
-                <p:fieldset legend="Meus Produtos">
+                <p:fieldset legend="Meu Carrinho">
                     <p:dataTable id="tabela" value="" var="livro">
 
                         <p:column headerText="Produto">
                             <h:outputText value="" />
                         </p:column>
-                        
+
                         <p:column headerText="Quantidade">
                             <h:outputText value="" />
                         </p:column>
@@ -38,13 +37,13 @@
                         </p:column>
 
                         <p:column headerText="Ações">
-                            <p:commandButton value="Trocar Produto"  update="form-cad"/>
-                            
+                            <p:commandButton value="Excluir"  update="form-cad"/>
+
                         </p:column>
-                        
+
                     </p:dataTable>
                     <p:column>
-                            <p:commandButton value="Finalizar Compra"  update="form-cad"/>
+                        <p:commandButton value="Finalizar Compra"  update="form-cad"/>
                     </p:column>
                 </p:fieldset>
             </h:form>

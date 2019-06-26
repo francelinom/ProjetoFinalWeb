@@ -11,17 +11,24 @@ import model.Estoque;
 @ManagedBean
 @SessionScoped
 public class CadastarProduto {
-    private List<Estoque> listaEstoque = new ArrayList<>();
-    EstoqueDAO daoEstoque = new EstoqueDAO(); //preparando dao Estoque
-    private Estoque estoque = new Estoque();
+    private List<Estoque> listaEstoque; 
+    EstoqueDAO daoEstoque;
+    private Estoque estoque;
     
 
+    public void inicializar(){
+        listaEstoque= new ArrayList<>();
+        daoEstoque = new EstoqueDAO(); //preparando dao Estoque
+        estoque = new Estoque();
+        
+        listaEstoque = daoEstoque.listAll();
+    }
     public CadastarProduto() {
     }
     
    
     public void cadastrar() {
-        EstoqueDAO daoEstoque = new EstoqueDAO(); //preparando dao usuario
+        daoEstoque = new EstoqueDAO();
         daoEstoque.save(estoque); //adiciona o usuario no banco               
 
         estoque = new Estoque();//limpar os campos
@@ -29,7 +36,7 @@ public class CadastarProduto {
     }
     
      public String excluirEstoque(Estoque e){
-        
+        daoEstoque = new EstoqueDAO();
         daoEstoque.delete(e);
         
         return "/admin/BemVindo.xhtml";
@@ -37,6 +44,7 @@ public class CadastarProduto {
     
     public String editarEstoque(Estoque e){
         estoque = e;
+        
         return "/admin/editarProduto.xhtml";
     }
     public String salvar(){
@@ -47,10 +55,15 @@ public class CadastarProduto {
         return "/admin/BemVindo.xhtml";
     }
 
-    
+    public String cancelar(){
+        estoque = new Estoque();
+       
+        return "/admin/BemVindo.xhtml";
+    }
     
     
     public List<Estoque> estoqueList(){
+        daoEstoque = new EstoqueDAO();
         listaEstoque = daoEstoque.listAll();
         return listaEstoque;
     }

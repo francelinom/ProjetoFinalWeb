@@ -48,11 +48,8 @@ public class CadastarUsuarioBean {
         UsuarioDAO daoUsuario = new UsuarioDAO(); //preparando dao usuario
         daoUsuario.save(usuario); //adiciona o usuario no banco               
 
-        System.out.println("endereco antes = " + endereco.getId_endereco());
         endereco.setUsuarios(usuario);
-        System.out.println("usuario =" + usuario.getId_cliente());
         
-        System.out.println("endereco depois = " + endereco.getId_endereco());
         EnderecoDAO endDao = new EnderecoDAO();//preparando dao endereco
         endDao.save(endereco);//adiciona o endereco no banco   
         

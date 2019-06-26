@@ -45,7 +45,7 @@ public class EstoqueDAO {
         query.select(klassRoot);
 
         List<Estoque> result = session.createQuery(query).getResultList();
-
+        session.close();
         return result;
 
     }

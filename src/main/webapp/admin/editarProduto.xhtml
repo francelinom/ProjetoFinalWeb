@@ -11,41 +11,78 @@
         <ui:define name = "content">				
             <h1 style="text-align: center;">Página de Edição de Protudos /// se voce chegou aqui faça essa tela</h1> 
 
-            <h:form>
+            <h:form id="formulario">
 
                 <h:messages style="color:red"/>
                 <p:fieldset legend="Editar Produto">
-                   
+
                     <p:dataTable value="#{cadastarProduto.listaEstoque}" var="estoques">
-                <p:column headerText="Descrição/Nome Produto" sortBy="">
-                    <f:facet name="heade">Descrição/Nome Produto</f:facet>
-                    <p:outputLabel value="#{estoques.descricao_produto}"></p:outputLabel>
-                </p:column>
-                        
-                <p:column headerText="Quantidade" sortBy="">
-                    <f:facet name="heade">Quantidade</f:facet>
-                    <p:outputLabel value="#{estoques.qtd_produto}"></p:outputLabel>
-                </p:column>        
+                        <p:column headerText="Descrição/Nome Produto" sortBy="">
+                            <f:facet name="heade">Descrição/Nome Produto</f:facet>
+                            <p:outputLabel value="#{estoques.descricao_produto}"></p:outputLabel>
+                        </p:column>
 
-                <p:column headerText="Data de Entrada do Produto" sortBy="">
-                    <f:facet name="heade">Data de Entrada do Produto</f:facet>
-                    <p:outputLabel value="#{estoques.hora_entrada}"></p:outputLabel>
-                </p:column>
+                        <p:column headerText="Quantidade" sortBy="">
+                            <f:facet name="heade">Quantidade</f:facet>
+                            <p:outputLabel value="#{estoques.qtd_produto}"></p:outputLabel>
+                        </p:column>        
 
-                <p:column headerText="Data de Saída do Produto" sortBy="">
-                    <f:facet name="heade">Data de Saída do Produto</f:facet>
-                    <p:outputLabel value="#{estoques.hora_saida}"></p:outputLabel>
-                </p:column>
+                        <p:column headerText="Data de Entrada do Produto" sortBy="">
+                            <f:facet name="heade">Data de Entrada do Produto</f:facet>
+                            <p:outputLabel value="#{estoques.hora_entrada}"></p:outputLabel>
+                        </p:column>
 
-                <p:column>
-                    <p:commandButton action="#{cadastarProduto.excluirEstoque(estoques)}" value="Remover" update="@form"/>
-                </p:column>
+                        <p:column headerText="Data de Saída do Produto" sortBy="">
+                            <f:facet name="heade">Data de Saída do Produto</f:facet>
+                            <p:outputLabel value="#{estoques.hora_saida}"></p:outputLabel>
+                        </p:column>
+
+                        <p:column>
+                            <p:commandButton action="#{cadastarProduto.excluirEstoque(estoques)}" value="Remover" update="formularioEditar, formulario"/>
+                            <p:commandButton action="#{cadastarProduto.editarEstoque(estoques)}" value="Editar" update="formularioEditar, formulario" ajax="true"/>
+                        </p:column>
 
 
                     </p:dataTable>
                 </p:fieldset>
             </h:form>
+            
+            <h:form id="formularioEditar">
+                
+                
+            <p:panelGrid columns="2">
+                <h:outputLabel value="Descrição/Nome Produto"></h:outputLabel>
+                <p:inputText value="#{cadastarProduto.estoque.descricao_produto}" required="true" requiredMessage="Produto Não pode Ficar em Branco"></p:inputText>
 
+                <h:outputLabel value="Quantidade"></h:outputLabel>
+                <p:inputText value="#{cadastarProduto.estoque.qtd_produto}">
+                    <f:validateDoubleRange minimum="1"></f:validateDoubleRange>
+                    <f:convertNumber type="number"></f:convertNumber>                    
+                </p:inputText>
+
+
+                <h:outputLabel value="Hora de Entrada do Produto"></h:outputLabel>
+                <p:inputMask mask="99/99/9999"  value="#{cadastarProduto.estoque.hora_entrada}" 
+                             requiredMessage="Formato de data inválido">
+                    <f:convertDateTime pattern="dd/MM/yyyy"  />
+
+                </p:inputMask>
+
+
+                <h:outputLabel value="Hora de Saída do Produto"></h:outputLabel>
+                <p:inputMask mask="99/99/9999"  value="#{cadastarProduto.estoque.hora_saida}" 
+                             requiredMessage="Formato de data inválido">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+
+                </p:inputMask>
+                
+                <p:column>
+                    <p:commandButton action="#{cadastarProduto.salvar()}" value="Salvar"/>
+                </p:column>
+
+            </p:panelGrid>
+            </h:form>
+           
             <h:form>
                 <p:column>
                     <p:commandButton action="/admin/BemVindo.xhtml" value="Voltar"/>

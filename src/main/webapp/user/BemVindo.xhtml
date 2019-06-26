@@ -15,7 +15,7 @@
                 
                 <p:fieldset style="text-align: center;" legend="Entre Na Loja Virtual e Faça Suas Compras">
                     
-                    <p:commandButton value="Loja Virtual"  update="frm,form-cad"/>
+                    <p:commandButton value="Loja Virtual" action="/user/LojaVirtual.xhtml"/>
                     <p:commandButton value="Cancelar" immediate="true"/> <br/>	
                 </p:fieldset>
 
@@ -28,6 +28,10 @@
                         <p:column headerText="Produto">
                             <h:outputText value="" />
                         </p:column>
+                        
+                        <p:column headerText="Quantidade">
+                            <h:outputText value="" />
+                        </p:column>
 
                         <p:column headerText="Valor R$">
                             <h:outputText value="" />
@@ -35,10 +39,13 @@
 
                         <p:column headerText="Ações">
                             <p:commandButton value="Trocar Produto"  update="form-cad"/>
-                            <p:commandButton value="Excluir"  update="frm"/> <br/>
+                            
                         </p:column>
-
+                        
                     </p:dataTable>
+                    <p:column>
+                            <p:commandButton value="Finalizar Compra"  update="form-cad"/>
+                    </p:column>
                 </p:fieldset>
             </h:form>
         </ui:define>         

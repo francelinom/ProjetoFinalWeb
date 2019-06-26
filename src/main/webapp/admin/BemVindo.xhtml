@@ -27,7 +27,7 @@
                         </p:inputText>
 
 
-                        <h:outputLabel value="Hora de Entrada do Produto"></h:outputLabel>
+                        <h:outputLabel value="Data de Entrada do Produto"></h:outputLabel>
                         <p:inputMask mask="99/99/9999"  value="#{cadastarProduto.estoque.hora_entrada}" 
                                      requiredMessage="Formato de data inválido">
                             <f:convertDateTime pattern="dd/MM/yyyy"  />
@@ -35,7 +35,7 @@
                         </p:inputMask>
 
 
-                        <h:outputLabel value="Hora de Saída do Produto"></h:outputLabel>
+                        <h:outputLabel value="Data de Saída do Produto"></h:outputLabel>
                         <p:inputMask mask="99/99/9999"  value="#{cadastarProduto.estoque.hora_saida}" 
                                      requiredMessage="Formato de data inválido">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
@@ -57,10 +57,10 @@
                         <p:column headerText="Quantidade">
                             <h:outputText value="#{estoque.qtd_produto}"></h:outputText>
                         </p:column>
-                        <p:column headerText="Hora de Entrada do Produto">
+                        <p:column headerText="Data de Entrada do Produto">
                             <h:outputText value="#{estoque.hora_entrada}"></h:outputText>
                         </p:column>
-                        <p:column headerText="Hora de Saída do Produto">
+                        <p:column headerText="Data de Saída do Produto">
                             <h:outputText value="#{estoque.hora_saida}"></h:outputText>
                         </p:column>
 

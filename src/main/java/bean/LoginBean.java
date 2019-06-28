@@ -51,6 +51,14 @@ public class LoginBean {
         return null;
 
     }
+    
+    public String sair(){
+			FacesContext context = FacesContext.getCurrentInstance();
+			ExternalContext ec = context.getExternalContext();
+			HttpSession s = (HttpSession) ec.getSession(true);
+			s.invalidate();
+			return "/index?faces-redirect=true";
+	}
 
     public Usuario getUsuarioAtual() {
         return usuarioAtual;

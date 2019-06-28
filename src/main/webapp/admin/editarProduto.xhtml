@@ -63,7 +63,8 @@
                         <f:validateDoubleRange minimum="1"></f:validateDoubleRange>
                         <f:convertNumber type="number"></f:convertNumber>                    
                     </p:inputText>
-
+                    
+                    
                     <p:column>
                         <p:commandButton action="#{cadastarProduto.salvar()}" value="Salvar"/>
                     </p:column>
@@ -73,7 +74,7 @@
 
             <h:form>
                 <p:column>
-                    <p:commandButton action="/admin/BemVindo.xhtml" value="Voltar"/>
+                    <p:commandButton action="/admin/BemVindo?faces-redirect=true" value="Voltar"/>
                 </p:column>
             </h:form>
 

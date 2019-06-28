@@ -40,7 +40,7 @@ public class Endereco implements Serializable {
 	 **********************************************************
      */
     @OneToOne(mappedBy = "endereco"/*, orphanRemoval=true*/)
-    @JoinColumn(name="usuarios_id")
+    //@JoinColumn(name="usuarios_id")
     private Usuario usuario;
 
     public Usuario getUsuario() {

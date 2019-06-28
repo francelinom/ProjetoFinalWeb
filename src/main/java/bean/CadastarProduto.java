@@ -61,7 +61,7 @@ public class CadastarProduto {
         return "/admin/editarProduto.xhtml";
     }
     public String salvar(){
-        System.out.println("kkkkkkkkkkkkkkkkk");
+        
         daoProduto = new ProdutoDAO();
         daoProduto.save(produto);
         
@@ -82,7 +82,11 @@ public class CadastarProduto {
         return listaProduto;
     }
     
-    
+    public String addProdutoEstoque(Produto add){
+        produto = add;
+        
+        return "/admin/addEstoque.xhtml";
+    }
     
     public List<Produto> getListaProduto() {
         return listaProduto;

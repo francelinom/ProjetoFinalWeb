@@ -10,12 +10,12 @@
     <ui:composition template = "../templates/common.xhtml">	
         <ui:define name = "content">	
             #{cadastrarEstoqueBean.inicializarEstoque()}
-            <h1 style="text-align: center;">Página de Administração</h1> 
+            <h1 style="text-align: center;">Página de Cadastro de Estoque</h1> 
 
             <h:form>
 
                 <h:messages style="color:red"/>
-                <p:fieldset legend="Cadastro de Produtos">
+                <p:fieldset legend="Cadastro de Estoque">
                     <p:panelGrid columns="2">
                         <h:outputLabel value="Estoque"></h:outputLabel>
                         <p:inputText value="#{cadastrarEstoqueBean.estoque.nome_estoque}" required="true" requiredMessage="Estoque Não pode Ficar em Branco"></p:inputText>
@@ -27,16 +27,24 @@
                     <p:commandButton value="Cancelar" action="#{cadastarProduto.cancelar()}" update="@form" immediate="true"></p:commandButton>
 
                     <br/><br/>
-
-                    <p:dataTable value="#{cadastrarEstoqueBean.listaEstoque()}" var="estoque">
-                        <p:column headerText="Estoque">
+                    
+                    <p:dataTable value="#{cadastrarEstoqueBean.estoqueList()}" var="estoque">
+                        <p:column headerText="Estoque Cadastrado">
                             <h:outputText value="#{estoque.nome_estoque}"></h:outputText>
                         </p:column>
                         
+                        <p:column>
+                            <p:commandButton value="Adicionar Produto"/><br/>
+                        </p:column>
+
                     </p:dataTable>
+
                 </p:fieldset>
             </h:form>
-            
+            <h:form>
+                <p:commandButton value="Voltar" action="/admin/BemVindo?faces-redirect=true" update="@form" immediate="true"></p:commandButton>
+            </h:form>
+
         </ui:define>         
     </ui:composition>
 </html>

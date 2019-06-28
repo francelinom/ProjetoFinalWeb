@@ -57,9 +57,10 @@
             </h:form>
             <h:form>
                 <p:column>
-                    <p:commandButton action="/admin/editarProduto.xhtml" value="Editar"/>
-                    <p:commandButton action="/admin/AddEstoque.xhtml" value="Estoque"/>
-                    <p:commandButton action="/admin/CadastrarEstoque.xhtml" value="Cadastrar Estoque"/>
+                    <p:commandButton action="/admin/editarProduto?faces-redirect=true" value="Editar Produto"/>
+                    <p:commandButton action="/admin/AddEstoque?faces-redirect=true" value="Visualizar Estoque"/>
+                    <p:commandButton action="/admin/CadastrarEstoque?faces-redirect=true" value="Cadastrar Estoque"/>
+                    <p:commandButton action="/admin/ListaClientes?faces-redirect=true" value="Visualizar Lista de Clientes"/>
                 </p:column>
             </h:form>
         </ui:define>         

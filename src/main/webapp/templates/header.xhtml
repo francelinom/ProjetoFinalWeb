@@ -5,30 +5,26 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
-    <body>
-        <ui:composition> 
-            <p:graphicImage value="/resources/images/pet_topo.jpeg" width="100%"/>
-            
-            <!-- PODE SER USADO DEPOIS
-
-            <p:panel rendered="#{sessionScope['admin-logado']!=null}">
-
-                <h:form>
-                    <p:outputLabel value="Bem-vindo, #{sessionScope['admin-logado'].nome}" /> <br/>
-                    <p:commandButton value="Sair" action="#{loginBean.sair()}" immediate="true"/>
-                </h:form>
-            </p:panel>
-
-            <p:panel rendered="#{sessionScope['usuario-logado']!=null}">
-
-                <h:form>
-                    <p:outputLabel value="Bem-vindo, #{sessionScope['usuario-logado'].nome}" /> <br/>
-                    <p:commandButton value="Sair" action="#{loginBean.sair()}" immediate="true"/>
-                </h:form>
-            </p:panel>
-            
-            -->
-
-        </ui:composition>	
-    </body>
+   <body>
+      <ui:composition> 
+         <p:graphicImage value="/resources/images/pet_topo.jpeg" width="100%"/>
+         
+         <p:panel rendered="#{sessionScope['admin-logado']!=null}">
+         
+         	<h:form>
+         	<p:outputLabel value="Bem-vindo, #{sessionScope['admin-logado'].nome}" /> <br/>
+                <p:commandButton value="Sair" action="#{login.sair()}" immediate="true"/>
+         	</h:form>
+         </p:panel>
+         
+          <p:panel rendered="#{sessionScope['usuario-logado']!=null}">
+         
+         	<h:form>
+         	<p:outputLabel value="Bem-vindo, #{sessionScope['usuario-logado'].nome}" /> <br/>
+                <p:commandButton value="Sair" action="#{login.sair()}" immediate="true"/>
+         	</h:form>
+         </p:panel>
+         
+      </ui:composition>	
+   </body>
 </html>

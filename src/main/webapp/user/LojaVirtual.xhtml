@@ -16,35 +16,57 @@
                 <h:messages style="color:red"/>
                 <p:fieldset legend="Produtos Disponiveis">
 
-                    <p:dataTable value="#{cadastarProduto.listaEstoque}" var="estoques">
+                    <p:dataTable value="#{cadastarProduto.produtoList()}" var="produto">
                         <p:column headerText="Descrição/Nome Produto" sortBy="">
                             <f:facet name="heade">Descrição/Nome Produto</f:facet>
-                            <p:outputLabel value="#{estoques.descricao_produto}"></p:outputLabel>
+                            <p:outputLabel value="#{produto.nome_produto}"></p:outputLabel>
                         </p:column>
 
                         <p:column headerText="Quantidade" sortBy="">
                             <f:facet name="heade">Quantidade</f:facet>
-                            <p:outputLabel value="#{estoques.qtd_produto}"></p:outputLabel>
+                            <p:outputLabel value="#{produto.qtd_produto}"></p:outputLabel>
                         </p:column>  
-                        
+
                         <p:column headerText="Valor R$" sortBy="">
                             <f:facet name="heade">Quantidade</f:facet>
-                            <p:outputLabel value="#{estoques.qtd_produto}"></p:outputLabel>
+                            <p:outputLabel value="#{produto.preco_produto}"></p:outputLabel>
                         </p:column> 
 
                         <p:column>
-                            <p:commandButton action="#{cadastarProduto.excluirEstoque(estoques)}" value="Adicionar no Carrinho" update="formulario"/>
-                            
+                            <p:commandButton  value="Adicionar no Carrinho" action="#{carrinhoBean.adicionarCarrinho(produto)}" update="formulario"/>
+
                         </p:column>
 
 
                     </p:dataTable>
                 </p:fieldset>
             </h:form>
-            
+
+            <h:form >
+                <p:fieldset legend="Meu Carrinho">
+                    <p:dataTable value="#{carrinhoBean.carrinho}" var="produto">
+
+                        <p:column headerText="Produto">
+                            <h:outputText value="#{produto.nome_produto}" />
+                        </p:column>
+
+                        <p:column headerText="Quantidade">
+                            <h:outputText value="#{produto.qtd_produto}" />
+                        </p:column>
+
+                        <p:column headerText="Valor R$">
+                            <h:outputText value="#{produto.preco_produto}" />
+                        </p:column>
+
+
+                    </p:dataTable>
+                    
+                </p:fieldset>
+            </h:form>
+
             <h:form>
                 <p:column>
-                    <p:commandButton action="/user/BemVindo.xhtml" value="Voltar"/>
+                    <p:commandButton action="/user/BemVindo?faces-redirect=true" value="Voltar"/>
                 </p:column>
             </h:form>
 

@@ -53,13 +53,13 @@
                     <p:inputText value="#{cadastarProduto.produto.nome_produto}" required="true" requiredMessage="Produto Não pode Ficar em Branco"></p:inputText>
 
                     <h:outputLabel value="Quantidade"></h:outputLabel>
-                    <p:inputText value="#{cadastarProduto.produto.qtd_produto}">
+                    <p:inputText value="#{cadastarProduto.produto.qtd_produto}" required="true" requiredMessage="Digite uma quantidade valida">
                         <f:validateDoubleRange minimum="1"></f:validateDoubleRange>
                         <f:convertNumber type="number"></f:convertNumber>                    
                     </p:inputText>
 
                     <h:outputLabel value="Preço do Produto"></h:outputLabel>
-                    <p:inputText value="#{cadastarProduto.produto.preco_produto}">
+                    <p:inputText value="#{cadastarProduto.produto.preco_produto}" required="true" requiredMessage="Digite uma valor valida">
                         <f:validateDoubleRange minimum="1"></f:validateDoubleRange>
                         <f:convertNumber type="number"></f:convertNumber>                    
                     </p:inputText>

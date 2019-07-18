@@ -17,10 +17,10 @@
                         <p:inputText value="#{cadastrar.usuario.nome}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
 
                         <p:outputLabel value="Telefone: "/> 
-                        <p:inputMask mask="(99)9.9999-9999" value="#{cadastrar.usuario.telefone}"></p:inputMask>
+                        <p:inputMask mask="(99)9.9999-9999" value="#{cadastrar.usuario.telefone}" required="true" requiredMessage="Telefone é necessário" validatorMessage=""></p:inputMask>
 
                         <p:outputLabel value="E-mail "/>
-                        <p:inputText value="#{cadastrar.usuario.email}"></p:inputText>
+                        <p:inputText value="#{cadastrar.usuario.email}" required="true" requiredMessage="Digite um Email" validatorMessage=""></p:inputText>
                       
                         <p:outputLabel value="Nacimento: "/>
                         <p:inputMask mask="99/99/9999" value="#{cadastrar.usuario.nascimento}" converterMessage="A data precisa estar no formato dd/mm/aaaa.">
@@ -28,10 +28,10 @@
                         </p:inputMask>
 
                         <p:outputLabel value="CPF"></p:outputLabel>
-                        <p:inputMask mask="999.999.999-99" value="#{cadastrar.usuario.cpf}" required="true" requiredMessage="Preencher Data de Lançamento"></p:inputMask>
+                        <p:inputMask mask="999.999.999-99" value="#{cadastrar.usuario.cpf}" required="true" requiredMessage="Preencher CPF"></p:inputMask>
 
                         <p:outputLabel value="Rua/Travessa/Avenida:"></p:outputLabel>
-                        <p:inputText value="#{cadastrar.endereco.rua}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
+                        <p:inputText value="#{cadastrar.endereco.rua}" required="true" requiredMessage="Endereço é necessário" validatorMessage="" ></p:inputText>
 
                         <p:outputLabel value="Numero"></p:outputLabel>
                         <p:inputText value="#{cadastrar.endereco.numero}" required="true" requiredMessage="Preencher com um numero valido" validatorMessage="" >
@@ -39,13 +39,13 @@
                         </p:inputText>
 
                         <p:outputLabel value="Bairro"></p:outputLabel>
-                        <p:inputText value="#{cadastrar.endereco.bairro}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
+                        <p:inputText value="#{cadastrar.endereco.bairro}" required="true" requiredMessage="Bairro é necessário" validatorMessage="" ></p:inputText>
 
                         <p:outputLabel value="Cidade"></p:outputLabel>
-                        <p:inputText value="#{cadastrar.endereco.cidade}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
+                        <p:inputText value="#{cadastrar.endereco.cidade}" required="true" requiredMessage="Cidade é necessário" validatorMessage="" ></p:inputText>
 
                         <p:outputLabel value="Estado"></p:outputLabel>
-                        <p:inputText value="#{cadastrar.endereco.estado}" required="true" requiredMessage="Nome é necessário" validatorMessage="" ></p:inputText>
+                        <p:inputText value="#{cadastrar.endereco.estado}" required="true" requiredMessage="Estado é necessário" validatorMessage="" ></p:inputText>
 
                         <p:outputLabel value="Login: "/>
                         <p:inputText value="#{cadastrar.usuario.login}" required="true" requiredMessage="Login é necessário" validatorMessage="Login deve ter pelo menos 5 caracteres.">

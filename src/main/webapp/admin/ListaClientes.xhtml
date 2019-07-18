@@ -10,12 +10,12 @@
     <ui:composition template = "../templates/common.xhtml">	
         <ui:define name = "content">	
             #{cadastrar.inicializarUsuario()}
-            <h1 style="text-align: center;">Página de Edição de Protudos</h1> 
+            <h1 style="text-align: center;">Clientes Cadastrados</h1> 
 
             <h:form id="formulario">
 
                 <h:messages style="color:red"/>
-                <p:fieldset legend="Editar Produto">
+                <p:fieldset legend="Lista de Clientes">
 
                     <p:dataTable value="#{cadastrar.usuarioList()}" var="usuario">
                         <p:column headerText="Nome" sortBy="">

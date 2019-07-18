@@ -25,10 +25,10 @@ public class CarrinhoBean {
     
     
      public String adicionarCarrinho(Produto p) {
-        
+        p.setQtd_produto(1);
          carrinho.add(p);
         
-        return "/user/BemVindo.xhtml";
+        return "/user/LojaVirtual?faces-redirect=true";
     }
 
     public String removerCarrinho(Produto p) {
@@ -36,18 +36,6 @@ public class CarrinhoBean {
         carrinho.remove(p);
         
         return "/user/BemVindo.xhtml";
-    }
-
-    public void limpar() {
-
-        for (int i = 0; i < carrinho.size(); i++) {
-          //  filmeDao.devolverQ(carrinho.get(i));
-          //  carrinho.remove(cadFilme);
-        }
-
-        qtdCesta = 0;
-        carrinho = new ArrayList<>();
-        valor = 0;
     }
     
 
